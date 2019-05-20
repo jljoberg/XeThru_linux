@@ -1,0 +1,4 @@
+0.001900 : open: 50 -- Error opening file: /dev/tty10
+system error: Permission denied
+
+0.002204 : module_io::open returned error

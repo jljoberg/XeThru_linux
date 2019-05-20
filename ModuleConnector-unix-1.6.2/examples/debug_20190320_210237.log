@@ -1,0 +1,4 @@
+0.002864 : Error parsing incoming data: CRC error
+0.003997 : set sensor mode failed error code: 1
+0.004540 : set sensor mode failed error code: 1
+0.034903 : set_normalization: module reponded with XTS_SPR_ERROR error code: 1

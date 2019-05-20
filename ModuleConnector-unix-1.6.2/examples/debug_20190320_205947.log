@@ -1,0 +1,5 @@
+0.002777 : Error parsing incoming data: CRC error
+0.003944 : set sensor mode failed error code: 1
+0.004613 : set sensor mode failed error code: 1
+1.942696 : x4driver_set_prf_div: module reponded with XTS_SPR_ERROR error code: 18
+1.943294 : set_normalization: module reponded with XTS_SPR_ERROR error code: 1

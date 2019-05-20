@@ -1,0 +1,14 @@
+0.002009 : Error parsing incoming data: CRC error
+0.002278 : x4driver_init: module reponded with XTS_SPR_ERROR error code: 1
+1.855843 : Failed to write all bytes to module, expected bytes written: 5, actual bytes written: 0
+1.856011 : Failed to write all bytes to module, expected bytes written: 13, actual bytes written: 0
+1.856045 : Failed to write all bytes to module, expected bytes written: 13, actual bytes written: 0
+1.856079 : Failed to write all bytes to module, expected bytes written: 13, actual bytes written: 0
+1.856113 : Failed to write all bytes to module, expected bytes written: 13, actual bytes written: 0
+1.856147 : Failed to write all bytes to module, expected bytes written: 13, actual bytes written: 0
+1.856181 : Failed to write all bytes to module, expected bytes written: 13, actual bytes written: 0
+1.856215 : Failed to write all bytes to module, expected bytes written: 17, actual bytes written: 0
+1.856249 : Failed to write all bytes to module, expected bytes written: 10, actual bytes written: 0
+1.856284 : Failed to write all bytes to module, expected bytes written: 10, actual bytes written: 0
+1.856318 : Failed to write all bytes to module, expected bytes written: 9, actual bytes written: 0
+1.856363 : Failed to write all bytes to module, expected bytes written: 4, actual bytes written: 0

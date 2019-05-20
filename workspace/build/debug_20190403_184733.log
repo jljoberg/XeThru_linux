@@ -1,0 +1,13 @@
+2.002168 : Timeout waiting for response
+2.002640 : Failed to write all bytes to module, expected bytes written: 4, actual bytes written: 0
+6.002928 : Failed to write all bytes to module, expected bytes written: 5, actual bytes written: 0
+6.003014 : Failed to write all bytes to module, expected bytes written: 13, actual bytes written: 0
+6.003036 : Failed to write all bytes to module, expected bytes written: 13, actual bytes written: 0
+6.003059 : Failed to write all bytes to module, expected bytes written: 13, actual bytes written: 0
+6.003082 : Failed to write all bytes to module, expected bytes written: 13, actual bytes written: 0
+6.003104 : Failed to write all bytes to module, expected bytes written: 13, actual bytes written: 0
+6.003127 : Failed to write all bytes to module, expected bytes written: 13, actual bytes written: 0
+6.003150 : Failed to write all bytes to module, expected bytes written: 17, actual bytes written: 0
+6.003172 : Failed to write all bytes to module, expected bytes written: 10, actual bytes written: 0
+6.003206 : Failed to write all bytes to module, expected bytes written: 10, actual bytes written: 0
+6.003240 : Failed to write all bytes to module, expected bytes written: 9, actual bytes written: 0

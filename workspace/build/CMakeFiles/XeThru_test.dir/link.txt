@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/XeThru_test.dir/src/X4M03_test.cpp.o  -o XeThru_test  -L/usr/include/python3.6m/libs  -L/home/jens/uavlab/XeThru/workspace/lib -Wl,-rpath,/usr/include/python3.6m/libs:/home/jens/uavlab/XeThru/workspace/lib -lModuleConnector -lpython2.7 

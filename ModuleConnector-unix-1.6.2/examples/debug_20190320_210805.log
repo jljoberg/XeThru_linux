@@ -1,0 +1,4 @@
+0.001344 : Error parsing incoming data: CRC error
+0.001959 : set sensor mode failed error code: 1
+0.002407 : set sensor mode failed error code: 1
+0.023741 : x4driver_set_dac_max: module reponded with XTS_SPR_ERROR error code: 1
