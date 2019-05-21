@@ -15,10 +15,18 @@ link_directories(${PYTHONHOME}/libs)
 # endforeach()
 # message(STATUS "*** dump end ***")sl
 
+IF(${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm") 
+    add_definitions (-mfloat-abi=softfp -mfpu=neon) 
+    set(XeThru_LIBDIR  ${PROJECT_SOURCE_DIR}/lib/ARM )
+    message("ARM system detectec")
+ELSE(${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm")
+    set(XeThru_LIBDIR  ${PROJECT_SOURCE_DIR}/lib/x86 )
+    message("Assuming x86")
+ENDIF(${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm")
+
 message("Python HOME: " ${PYTHONHOME})
 
 set(XeThru_INCLUDEDIR  ./include )
-set(XeThru_LIBDIR  ${PROJECT_SOURCE_DIR}/lib )
 set(XeThru_LIBS  ModuleConnector)
 set(XeTHRU_SRC ./src)
 
