@@ -1,6 +1,8 @@
 #include "XEP.hpp"
 #include "ModuleConnector.hpp"
+#ifndef __ARM__
 #include "matplotlibcpp.h"
+#endif
 
 #include <algorithm>
 #include <functional> 
@@ -8,8 +10,6 @@
 #include <iostream>
 #include <csignal>
 #include <unistd.h>
-
-
 
 #ifdef __ARM__
     #define plot(...)
