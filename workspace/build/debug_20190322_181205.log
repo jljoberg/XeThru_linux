@@ -1,4 +1,0 @@
-0.000679 : open: 50 -- Error opening file: /dev/ttyACM1
-system error: No such file or directory
-
-0.000771 : module_io::open returned error

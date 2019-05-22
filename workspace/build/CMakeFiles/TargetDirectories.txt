@@ -1,3 +1,0 @@
-/home/jens/uavlab/XeThru/workspace/build/CMakeFiles/rebuild_cache.dir
-/home/jens/uavlab/XeThru/workspace/build/CMakeFiles/XeThru_test.dir
-/home/jens/uavlab/XeThru/workspace/build/CMakeFiles/edit_cache.dir

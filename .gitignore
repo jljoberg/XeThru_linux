@@ -1,2 +1,4 @@
 .vscode/
 ARM/.vscode/
+**/build/
+**/build_test/
