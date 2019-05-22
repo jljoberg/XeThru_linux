@@ -1,23 +1,25 @@
 #include "XEP.hpp"
 #include "ModuleConnector.hpp"
-#ifndef __ARM__
-#include "matplotlibcpp.h"
+#ifndef __arm__
+    #include "matplotlibcpp.h"
 #endif
 
 #include <algorithm>
 #include <functional> 
+#include <math.h>
+#include <assert.h>
 
 #include <iostream>
 #include <csignal>
 #include <unistd.h>
 
-#ifdef __ARM__
+#ifdef __arm__
     #define plot(...)
     #define pause(...)
     #define clf(...)
+#else
+    using namespace matplotlibcpp;
 #endif
-
-using namespace matplotlibcpp;
 
 
 namespace{

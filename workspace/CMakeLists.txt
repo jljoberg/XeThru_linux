@@ -16,7 +16,7 @@ link_directories(${PYTHONHOME}/libs)
 # message(STATUS "*** dump end ***")sl
 
 IF(${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm") 
-    add_definitions (-mfloat-abi=softfp -mfpu=neon) 
+    #add_definitions (-mfloat-abi=softfp -mfpu=neon) 
     set(XeThru_LIBDIR  ${PROJECT_SOURCE_DIR}/lib/ARM )
     message("ARM system detectec")
 ELSE(${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm")
@@ -40,6 +40,6 @@ include_directories( ${XeThru_INCLUDEDIR})
 include_directories( ${PLOT_INCLUDE})
 link_directories( ${XeThru_LIBDIR} )
 add_executable(XeThru_test ${XeTHRU_SRC}/X4M03_test.cpp)
-target_link_libraries(XeThru_test ${XeThru_LIBS} ${PLOT_LIBS})
+target_link_libraries(XeThru_test ${XeThru_LIBS} ${PLOT_LIBS} m)
 
 message("CMAKE root: " ${PROJECT_SOURCE_DIR})
