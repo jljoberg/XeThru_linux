@@ -10,10 +10,19 @@
 #include <assert.h>
 
 #include <iostream>
+#include <string.h>
 #include <csignal>
 #include <unistd.h>
 
-#ifdef __arm__
+// udp includes
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <netdb.h>
+
+#define NO_PLOTTING
+#if defined __arm__ || defined NO_PLOTTING
     #define plot(...)
     #define pause(...)
     #define clf(...)
@@ -73,6 +82,9 @@ std::vector<T> operator*(const std::vector<T> vec, const T scalar)
 
 
 // static XeThru::XEP xep;
+#define UDP_BC_PORT 13001
+static int udp_sock;
+static struct sockaddr_in addr_bc;
 
 static std::vector<float> range_vec;
 static std::vector<float> bg_amp;
@@ -85,6 +97,36 @@ void exitHandle(int s)
         exit(1);
     }
     gSignalStatus = s;
+}
+
+void error(const char* msg)
+{
+    perror(msg);
+    exit(0);
+}
+int udp_init()
+{
+    if( (udp_sock=socket(AF_INET, SOCK_DGRAM, 0)) < 0  ) error("Socket init error");
+    int addr_len = sizeof(addr_bc);
+
+    addr_bc.sin_family = AF_INET;
+    // addr_bc.sin_addr.s_addr = INADDR_ANY;
+    addr_bc.sin_addr.s_addr = INADDR_BROADCAST;
+    // inet_pton(AF_INET, "129.241.154.39", &(addr_bc.sin_addr));
+    // inet_pton(AF_INET, "127.0.0.1", &(addr_bc.sin_addr));
+    addr_bc.sin_port = htons(UDP_BC_PORT);
+
+    if(setsockopt(udp_sock,SOL_SOCKET,SO_BROADCAST,&udp_sock,sizeof(udp_sock)) < 0) error("Opt BC");
+
+    return 1;
+}
+
+int udp_bc_floats(float*data, int len)
+{
+    int addr_len = sizeof(addr_bc);
+    int n = sendto(udp_sock, (char*)data, len*sizeof(float), 0, (struct sockaddr *)&addr_bc, addr_len);
+    std::cout << "Udp sent " << n << " bytes\n";
+    return n;
 }
 
 std::vector<float> get_bbAbs(std::vector<float> bb)
@@ -179,14 +221,19 @@ int radar_step(XeThru::XEP* p_xep, int calibrate)
             bg_amp = bg_amp_accumulated * (float)(1/(float)n_bg_amp);                
             printf("bg_amp is made\n");       
         }
-        return 0;
     }
-    amp = amp - bg_amp;
-    amp[0] = 0.04;
-    amp[1] = -0.01;
-    clf();
-    plot(range_vec, amp);
-    pause(0.00001);
+    else
+    {
+        amp = amp - bg_amp;
+        amp[0] = 0.04;
+        amp[1] = -0.01;
+        clf();
+        plot(range_vec, amp);
+        pause(0.00001);
+
+    }
+    udp_bc_floats(&amp[0], amp.size());
+    return 0;
 }
 
 
@@ -215,6 +262,7 @@ int main(int argc, char ** argv)
     static XeThru::XEP& (xep) = mc.get_xep();
     p_xep = &xep;
     radar_init(device_name, p_xep);
+    udp_init();
 
     for(int i=0; i<100 & !gSignalStatus; i++)
     {
