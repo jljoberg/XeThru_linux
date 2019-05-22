@@ -125,7 +125,6 @@ int udp_bc_floats(float*data, int len)
 {
     int addr_len = sizeof(addr_bc);
     int n = sendto(udp_sock, (char*)data, len*sizeof(float), 0, (struct sockaddr *)&addr_bc, addr_len);
-    std::cout << "Udp sent " << n << " bytes\n";
     return n;
 }
 
@@ -219,7 +218,7 @@ int radar_step(XeThru::XEP* p_xep, int calibrate)
         if(calibrate==2)
         {
             bg_amp = bg_amp_accumulated * (float)(1/(float)n_bg_amp);                
-            printf("bg_amp is made\n");       
+            std::cout << "bg_amp is made\n";       
         }
     }
     else
@@ -264,9 +263,8 @@ int main(int argc, char ** argv)
     radar_init(device_name, p_xep);
     udp_init();
 
-    for(int i=0; i<100 & !gSignalStatus; i++)
+    for(int i=0; i<50 & !gSignalStatus; i++)
     {
-        std::cout << "calib:\n";
         radar_step(p_xep, 1);
     }
     radar_step(p_xep, 2); // Do the averaging
